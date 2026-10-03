@@ -19,7 +19,7 @@ def run(state):
                   "is weak or contradictory, and never give patient-specific medical advice.",
         model=config.SMART_MODEL,
         temperature=0.3,
-        max_tokens=2500,
+        max_tokens=6000,
     )
     listing = "\n\n".join(
         f"ID {e['id']} | {e['year']} | {', '.join(e['pub_types'][:3])} | {e['journal']}\n"
