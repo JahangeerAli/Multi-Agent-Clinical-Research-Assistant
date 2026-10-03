@@ -5,7 +5,7 @@ from tools.pdf_store import extract_chunks, build_index, build_library, merge_in
 
 st.set_page_config(page_title="Clinical Research Assistant", page_icon="🩺", layout="wide")
 st.title("🩺 Multi-Agent Clinical Research Assistant")
-st.caption("CrewAI agents: Planner → Retriever → Critic → Writer · Groq (Llama) + PubMed + your PDFs · free stack")
+st.caption("CrewAI agents: Planner → Retriever → Critic → Writer · Groq + PubMed + your PDFs · free stack")
 st.warning("Research/education tool only. Not a medical device and not for clinical "
            "decision-making without expert review. Never upload patient data.")
 
