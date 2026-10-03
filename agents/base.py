@@ -36,14 +36,14 @@ except Exception:
     pass  # if litellm is missing, nothing to patch
 
 
-def make_llm(model, temperature=0.2, max_tokens=1500):
+def make_llm(model, temperature=0.2, max_tokens=4000):
     """CrewAI LLM object pointing at Groq."""
     return LLM(model=model, api_key=config.GROQ_API_KEY,
                temperature=temperature, max_tokens=max_tokens)
 
 
 def make_agent(role, goal, backstory, model, tools=None, max_iter=5,
-               temperature=0.2, max_tokens=1500):
+               temperature=0.2, max_tokens=4000):
     return Agent(
         role=role,
         goal=goal,
