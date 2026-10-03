@@ -21,8 +21,8 @@ if GROQ_API_KEY:
 
 # Groq models, the "groq/" prefix is required by CrewAI.
 # If a model stops working, check https://console.groq.com/docs/models
-SMART_MODEL = "groq/llama-3.3-70b-versatile"   # Retriever and Writer
-FAST_MODEL = "groq/llama-3.1-8b-instant"       # Planner and Critic
+SMART_MODEL = "groq/openai/gpt-oss-120b"   # Retriever and Writer
+FAST_MODEL = "groq/openai/gpt-oss-20b"     # Planner and Critic
 
 # Free local embeddings (no API key)
 EMBED_MODEL = "BAAI/bge-small-en-v1.5"
