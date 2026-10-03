@@ -4,6 +4,37 @@ import time
 from crewai import Agent, Task, Crew, Process, LLM
 import config
 
+# ---------------------------------------------------------------------------
+# Compatibility patch: newer CrewAI versions add extra keys to messages
+# (like "cache_breakpoint") that Groq rejects. We remove them just before
+# the request is sent.
+# ---------------------------------------------------------------------------
+try:
+    import litellm
+
+    _BAD_MESSAGE_KEYS = {"cache_breakpoint", "cache_control"}
+    _BAD_CALL_KEYS = {"is_litellm"}
+
+    if not getattr(litellm.completion, "_groq_patched", False):
+        _original_completion = litellm.completion
+
+        def _patched_completion(*args, **kwargs):
+            messages = kwargs.get("messages")
+            if messages:
+                kwargs["messages"] = [
+                    {k: v for k, v in m.items() if k not in _BAD_MESSAGE_KEYS}
+                    if isinstance(m, dict) else m
+                    for m in messages
+                ]
+            for key in _BAD_CALL_KEYS:
+                kwargs.pop(key, None)
+            return _original_completion(*args, **kwargs)
+
+        _patched_completion._groq_patched = True
+        litellm.completion = _patched_completion
+except Exception:
+    pass  # if litellm is missing, nothing to patch
+
 
 def make_llm(model, temperature=0.2, max_tokens=1500):
     """CrewAI LLM object pointing at Groq."""
