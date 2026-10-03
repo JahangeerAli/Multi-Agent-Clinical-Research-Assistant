@@ -1,0 +1,6 @@
+streamlit
+crewai[litellm]
+requests
+pypdf
+fastembed
+numpy
