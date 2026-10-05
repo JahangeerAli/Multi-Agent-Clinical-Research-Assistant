@@ -224,7 +224,7 @@ Tested on 10 clinical questions:
 
 **⚕️ For research and education only. This project does not provide medical advice.**
 
-Made with ❤️ by **Jahangeer Ali** · [GitHub](https://github.com/JahangeerAli)] · [LinkedIn]((http://www.linkedin.com/in/jahangeer-ali-shilwa)]
+Made with ❤️ by **Jahangeer Ali** · [GitHub](https://github.com/JahangeerAli) · [LinkedIn](http://www.linkedin.com/in/jahangeer-ali-shilwa)
 
 ⭐ *If you find this useful, please star the repo!*
 
